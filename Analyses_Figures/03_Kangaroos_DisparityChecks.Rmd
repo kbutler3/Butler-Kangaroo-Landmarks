@@ -1,0 +1,94 @@
+---
+title: "KangarooDisparity"
+author: "Vera Weisbecker"
+date: "5 September 2019"
+output: html_document
+---
+
+```{r}
+
+library(geomorph) # version 3.0.6
+
+library(dispRity)
+
+library(abind) # version 1.4-3
+
+library(caper)
+```
+
+
+
+#Only run once
+```{r}
+
+#Note this reads in two completely different workspaces for getting GPAs for dentary and cranial. 
+
+load("../Processed_data/crania_with_fossils.rda")
+
+#Add a classifier for fossils alone
+classifiers$Fossil <- c(rep(1,length(rownames(classifiers))));classifiers$Fossil [ c(which(classifiers$Diet=="fossil"))] <-2
+
+#making sure classifiers and coordinates match
+dimnames(coords)[[3]]==classifiers$Species
+
+#The fossil attribution needs to be a factor or geomorph.ordination below does not run
+RivRooGdf_cranial <- geomorph.data.frame(coords=coords, Fossils=as.factor(classifiers$Fossil) )
+
+save(RivRooGdf_cranial, file = "../Processed_data/RivRooGdf_cranial.rda")
+
+rm(list = ls(all.names = TRUE))
+
+
+load("../Processed_data/dentary_with_fossils.rda")
+
+#Add a classifier for fossils alone
+classifiers$Fossil <- c(rep(1,length(rownames(classifiers))));classifiers$Fossil [ c(which(classifiers$Diet=="fossil"))] <-2
+
+#making sure classifiers and coordinates match
+dimnames(coords)[[3]]==classifiers$Species
+
+
+RivRooGdf_dentary <- geomorph.data.frame(coords=coords, Fossils=as.factor(classifiers$Fossil) )
+
+save(RivRooGdf_dentary, file = "../Processed_data/RivRooGdf_dentary.rda")
+
+#save.image(file="E:/Github_Projects/riversleigh_roo_R_code/Temp_files_VW_for_heatplots/RooShapes.rda")
+
+
+```
+
+
+```{r}
+load(file = "../Processed_data/RivRooGdf_cranial.rda")
+
+load(file = "../Processed_data/RivRooGdf_dentary.rda")
+
+
+Traitspace <- geomorph.ordination(RivRooGdf_cranial)
+
+#OR use
+Traitspace <- geomorph.ordination(RivRooGdf_dentary)
+
+
+Traitspace
+
+#This is just the PCA
+plot(Traitspace, asp=TRUE)
+
+#This identifies the centroid of the living species to then test the multidimensional position of the extinct species against.
+living_centroid <- apply(Traitspace$matrix[Traitspace$subsets$Fossils.1$elements,], 2, mean)
+
+#this computes the distance of both groups from the living center, summary gives the stats, plot gives the boxplot
+Distance_from_living_center <- dispRity(Traitspace, metric = centroids, centroid = living_centroid)
+
+summary(Distance_from_living_center)
+
+plot(Distance_from_living_center)
+
+#This t-test shows that the extinct species are signiricantly further away from the living centroid than the living species
+
+test.dispRity(Distance_from_living_center, test = t.test, alternative="less")
+
+
+```
+

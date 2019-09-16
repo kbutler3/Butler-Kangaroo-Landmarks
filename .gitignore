@@ -1,0 +1,13 @@
+backup/
+*.rda
+.rhistory
+*.png
+*.json
+*.snapshot
+*.metadata
+.Rproj.user/D202312A/sources/s-AAB95EF1/B67C20CD-contents
+.Rproj.user/D202312A/sources/s-AAB95EF1/B67C20CD-contents
+.RData
+.RData
+.Rproj.user
+Processed_data/

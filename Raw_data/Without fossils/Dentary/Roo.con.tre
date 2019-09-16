@@ -1,0 +1,209 @@
+#NEXUS
+[R-package APE, Sun Sep 01 13:33:09 2019]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 98;
+	TAXLABELS
+		Galadi_speciosus
+		Trichosurus_vulpecula
+		Burramys_brutyi
+		Hypsiprymnodon_philcreaseri
+		Hypsiprymnodon_bartholomaii
+		Nambaroo_tarrinyeri
+		Balbaroo_gregoriensis
+		Wururoo_dayamayi
+		Balbaroo_fangaroo
+		Balbaroo_camfieldensis
+		Balbaroo_nalima
+		Ganawamaya_acris
+		Ganawamaya_couperi
+		Ganawamaya_aediculis
+		Nambaroo_gillespieae
+		Nambaroo_saltavus
+		Ekaltadeta_ima
+		Ekaltadeta_jamiemulvaneyi
+		Jackmahoneya_toxoniensis
+		Propleopus_oscillans
+		Hypsiprymnodon_moschatus
+		Wakiewakie_lawsoni
+		Bettongia_moyesi
+		Purtia_mosaicus
+		Ngamaroo_archeri
+		Wabularoo_naughtoni
+		Wabularoo_prideauxi
+		Ganguroo_robustiter
+		Lagostrophus_fasciatus
+		Troposodon_minor
+		Tjukuru_wellsi
+		Wanburoo_hilarus
+		Rhizosthenurus_flanneryi
+		Hadronomas_puckridgi
+		Sthenurus_andersoni
+		Simosthenurus_occidentalis
+		Procoptodon_goliah
+		Dorcopsoides_fossilis
+		Dorcopsis_veterum
+		Dorcopsulus_vanheurni
+		Setonix_brachyurus
+		Baringa_nelsonensis
+		Onychogalea_fraenata
+		Onychogalea_lunata
+		Onychogalea_unguifera
+		Macropus_eugenii
+		Macropus_agilis
+		Macropus_parma
+		Macropus_parryi
+		Macropus_dorsalis
+		Macropus_rufogriseus
+		Macropus_fuliginosus
+		Macropus_giganteus
+		Macropus_pavana
+		Macropus_rufus
+		Macropus_irma
+		Macropus_robustus
+		Wallabia_bicolor
+		Prionotemnus_palankarinnicus
+		Protemnodon_anak
+		Congruus_congruus
+		Petrogale_brachyotis
+		Petrogale_burbigei
+		Petrogale_persephone
+		Petrogale_xanthorpus_celeris
+		Petrogale_rothschildi
+		Petrogale_l_lateralis
+		Petrogale_l_hacketti
+		Petrogale_purpureicollis
+		Petrogale_herberti
+		Petrogale_penicillata
+		Petrogale_inornata
+		Petrogale_assimilis
+		Bohra_illuminata
+		Dendrolagus_matschiei
+		Dendrolagus_bennettianus
+		Dendrolagus_goodellowi
+		Dendrolagus_lumholtzi
+		Kurrabi_mahoneyi
+		Thylogale_billardierii
+		Thylogale_thetis
+		Thylogale_stigmatica
+		Lagorchestes_c_conspicillatus
+		Lagorchestes_c_leichardti
+		Lagorchestes_h_hirsutus
+		Ganguroo_bilamina
+		Ganguroo_bites
+		Bulungamaya_delicata
+		Gumardee_springae
+		Gumardee_pascuali
+		Bettongia_p_ogilbyi
+		Bettongia_gaimardi
+		Bettongia_l_lesuer
+		Bettongia_l_graii
+		Aepyprymnus_rufescens
+		Potorous_gilbertii
+		Potorous_tridactylus
+		Pseudocheirus_peregrinus
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Galadi_speciosus,
+		2	Trichosurus_vulpecula,
+		3	Burramys_brutyi,
+		4	Hypsiprymnodon_philcreaseri,
+		5	Hypsiprymnodon_bartholomaii,
+		6	Nambaroo_tarrinyeri,
+		7	Balbaroo_gregoriensis,
+		8	Wururoo_dayamayi,
+		9	Balbaroo_fangaroo,
+		10	Balbaroo_camfieldensis,
+		11	Balbaroo_nalima,
+		12	Ganawamaya_acris,
+		13	Ganawamaya_couperi,
+		14	Ganawamaya_aediculis,
+		15	Nambaroo_gillespieae,
+		16	Nambaroo_saltavus,
+		17	Ekaltadeta_ima,
+		18	Ekaltadeta_jamiemulvaneyi,
+		19	Jackmahoneya_toxoniensis,
+		20	Propleopus_oscillans,
+		21	Hypsiprymnodon_moschatus,
+		22	Wakiewakie_lawsoni,
+		23	Bettongia_moyesi,
+		24	Purtia_mosaicus,
+		25	Ngamaroo_archeri,
+		26	Wabularoo_naughtoni,
+		27	Wabularoo_prideauxi,
+		28	Ganguroo_robustiter,
+		29	Lagostrophus_fasciatus,
+		30	Troposodon_minor,
+		31	Tjukuru_wellsi,
+		32	Wanburoo_hilarus,
+		33	Rhizosthenurus_flanneryi,
+		34	Hadronomas_puckridgi,
+		35	Sthenurus_andersoni,
+		36	Simosthenurus_occidentalis,
+		37	Procoptodon_goliah,
+		38	Dorcopsoides_fossilis,
+		39	Dorcopsis_veterum,
+		40	Dorcopsulus_vanheurni,
+		41	Setonix_brachyurus,
+		42	Baringa_nelsonensis,
+		43	Onychogalea_fraenata,
+		44	Onychogalea_lunata,
+		45	Onychogalea_unguifera,
+		46	Macropus_eugenii,
+		47	Macropus_agilis,
+		48	Macropus_parma,
+		49	Macropus_parryi,
+		50	Macropus_dorsalis,
+		51	Macropus_rufogriseus,
+		52	Macropus_fuliginosus,
+		53	Macropus_giganteus,
+		54	Macropus_pavana,
+		55	Macropus_rufus,
+		56	Macropus_irma,
+		57	Macropus_robustus,
+		58	Wallabia_bicolor,
+		59	Prionotemnus_palankarinnicus,
+		60	Protemnodon_anak,
+		61	Congruus_congruus,
+		62	Petrogale_brachyotis,
+		63	Petrogale_burbigei,
+		64	Petrogale_persephone,
+		65	Petrogale_xanthorpus_celeris,
+		66	Petrogale_rothschildi,
+		67	Petrogale_l_lateralis,
+		68	Petrogale_l_hacketti,
+		69	Petrogale_purpureicollis,
+		70	Petrogale_herberti,
+		71	Petrogale_penicillata,
+		72	Petrogale_inornata,
+		73	Petrogale_assimilis,
+		74	Bohra_illuminata,
+		75	Dendrolagus_matschiei,
+		76	Dendrolagus_bennettianus,
+		77	Dendrolagus_goodellowi,
+		78	Dendrolagus_lumholtzi,
+		79	Kurrabi_mahoneyi,
+		80	Thylogale_billardierii,
+		81	Thylogale_thetis,
+		82	Thylogale_stigmatica,
+		83	Lagorchestes_c_conspicillatus,
+		84	Lagorchestes_c_leichardti,
+		85	Lagorchestes_h_hirsutus,
+		86	Ganguroo_bilamina,
+		87	Ganguroo_bites,
+		88	Bulungamaya_delicata,
+		89	Gumardee_springae,
+		90	Gumardee_pascuali,
+		91	Bettongia_p_ogilbyi,
+		92	Bettongia_gaimardi,
+		93	Bettongia_l_lesuer,
+		94	Bettongia_l_graii,
+		95	Aepyprymnus_rufescens,
+		96	Potorous_gilbertii,
+		97	Potorous_tridactylus,
+		98	Pseudocheirus_peregrinus
+	;
+	TREE * Tree1 = [&R] (1:27.875,(((2:1,3:1):24.875,(((4:21.75,5:21.75):0,(((6:5,(((7:3,8:3):0,(9:2,(10:1,11:1):1):1):1,((12:1,13:1):1,(14:1,15:1):1):2):1):1,16:6):1,((17:1,18:1):1,(19:1,20:1):1):5):14.75):3.125,(21:24.875,(((22:19.75,23:19.75):2.625,(24:21.375,(25:20.375,((((((26:1,27:1):13.75,28:14.75):2.625,(((29:1,30:1):1,31:2):14.375,((((32:1,33:1):0.5,34:1.5):2,(35:2,(36:1,37:1):1):1.5):11.875,((38:2,(39:1,40:1):1):12.375,(41:13.375,((((42:1.5,((43:1,44:1):0,45:1):0.5):3,(((((46:1.5,47:1.5):0.75,(48:1.125,49:1.125):1.125):0,50:2.25):0.375,51:2.625):0.375,(((52:0.5,53:0.5):0.5,54:1):1,(55:1.5,(56:1,57:1):0.5):0.5):1):1.5):5.25,58:9.75):2.625,((59:9.75,(60:1,61:1):8.75):0,(((((62:0.5,63:0.5):6.5,(64:6,(65:5,(66:4,(((67:1,68:1):1,69:2):1,((70:1,71:1):1,(72:1,73:1):1):1):1):1):1):1):0.75,(74:2,((75:1.75,76:1.75):0,(77:1.75,78:1.75):0):0.25):5.75):2,79:9.75):0,(((80:1,81:1):1.25,82:2.25):7.5,((83:1,84:1):0.5,85:1.5):8.25):0):0):2.625):1):1):1):1):1):0,(86:14.75,87:14.75):2.625):1,88:18.375):1,(89:9.6875,90:9.6875):9.6875):1):1):1):1.5,((((91:0.5,92:0.5):1,(93:1,94:1):0.5):1,95:2.5):1,(96:1,97:1):2.5):20.375):1):0):1):1,98:26.875):1);
+END;

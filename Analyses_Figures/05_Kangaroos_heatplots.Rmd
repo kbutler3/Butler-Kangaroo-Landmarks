@@ -1,0 +1,146 @@
+---
+title: "Heat map plot of changes"
+author: "Thomas Guillerme"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    fig_width: 12
+    fig_height: 6
+---
+
+Some fancy plots for the maximum landmark variation.
+
+## Plots 
+
+### Loading the functions
+
+```{r, message = FALSE, warning = FALSE}
+## Loading the libraries (and installing if necessary)
+if(!require(devtools)) install.packages("devtools"); library(devtools)
+if(!require(geomorph)) install.packages("geomorph"); library(geomorph)
+if(!require(dispRity)) install.packages("dispRity"); library(dispRity)
+
+#if(!require(landvR)) install_github("TGuillerme/landvR") ; library
+library(abind)
+devtools::install_github("TGuillerme/landvR")
+library(landvR)
+set.seed(42)
+```
+
+
+### Loading the data
+
+```{r}
+## Loading a dataset
+
+#loading the requisite shape and PC data
+
+#full crania dataset
+  load(file= "../Processed_data/crania_with_fossils.rda") 
+
+   #crania dataset without curve of the molar row
+  load(file= "../Processed_data/crania_without_molar_curve.rda")
+
+   #Dentary dataset
+  load(file= "../Processed_data/dentary_with_fossils.rda")
+
+  
+```
+
+
+Shape variation between hypothetical PCmin and maxes - 
+
+```{r}
+
+#Here is a function that allows running of PC heatplots. 
+
+heatplot.PCs<-function (coordinates,minfirst, PC_axis,...){
+  
+  ## Procrustes variation ranges for PCA; axis determines which ordination axis to use
+  PC_variation <- variation.range(coordinates, return.ID = TRUE, axis=PC_axis, ordination=TRUE)
+  
+  #determines range of variation between PC extremes
+  PC_var <- PC_variation$range[,1]
+  
+  #runs PCA for min/max plotting
+  PCA=plotTangentSpace(coordinates, verbose=FALSE)
+  
+  gridPar = gridPar(pt.bg = "white", pt.size = 0.5)
+  
+  #converting pc shape ID of PCA into column numbers so the PC number can be chosen (e.g. PC6min is PCA$pc.shapes[[11]])
+  
+  pc_IDs <- c(PC_axis*2-1, PC_axis*2)
+  
+  if(minfirst==TRUE){
+    open3d()
+    procrustes.var.plot(PCA$pc.shapes[[pc_IDs[1]]],
+                         PCA$pc.shapes[[pc_IDs[2]]],
+                         col = heat.colors, pt.size = 1, col.val = PC_var,...)}
+  else {
+    open3d()
+    procrustes.var.plot(PCA$pc.shapes[[pc_IDs[2]]],
+                         PCA$pc.shapes[[pc_IDs[1]]],
+                         col = heat.colors, pt.size = 1, col.val = PC_var, ...)}
+}
+
+
+#THIS IS WHERE YOU GENERATE HEATPLOTS OF THE PRCOMPS AND YOU CAN JUST SAVE SCREENSHOTS
+heatplot.PCs(coords,minfirst=TRUE,1)
+#IMPORTANT THE PC2 HYPOTHETICAL VARIATION IS DISPLAYED HERE, THIS IS WHAT SEPARATES LIVING AND FOSSIL SPECIES
+heatplot.PCs(coords,minfirst=TRUE,2)
+heatplot.PCs(coords,minfirst=TRUE,3)
+
+#If you want to use the b/w displacemetn plots to double-check that it worked:
+    open3d()
+    plotRefToTarget(Roo.PCA$pc.shapes$PC1min,Roo.PCA$pc.shapes$PC1max, method="vector")
+  
+  gridPar = gridPar(pt.bg = "white", pt.size = 0.5)
+
+```
+
+The below plots the mean shape of the living roos against the mean shape of the extinct ones
+```{r, eval = FALSE}
+
+living_roos <-mshape( coords[,,which(classifiers$Fossil==1 )])
+fossil_roos <- mshape(coords[,,which(classifiers$Fossil==2 )])  
+
+
+
+#the [[1]] is important to make sure the matrix is "on the surface"
+difference_roos <- coordinates.difference(living_roos,fossil_roos, type = "spherical")[[1]]
+minmax_roos <- c(1,2)
+
+
+#Constructing the below to "imitate" the variation.range output needed for the heat plot colours
+
+living_fossil_var <- matrix()
+living_fossil_var$range <-difference_roos
+living_fossil_var$min.max <- minmax_roos; living_fossil_var <-living_fossil_var [-1]
+  
+  
+#The below whas just to allow understanding of how the variation range output neds to look like
+# <- variation.range(coords, return.ID = TRUE)
+#GPA_variation$range
+#GPA_variation$min.max
+
+
+
+#specimens_min_max <- living_fossil_var$min.max
+Living_fossil_var <- living_fossil_var$range[,1]
+  
+  
+#gridPar = gridPar(pt.bg = "white", pt.size = 0.5)
+
+open3d()
+procrustes.var.plot(living_roos,
+                     fossil_roos,
+                     col = heat.colors, pt.size = 1, col.val = Living_fossil_var, main = "Mean shapes living vs. extinct")
+
+#Comparison with PC2, note to have the same vector directions you have to ask for the maximum PC2 score configuration to be listed as the reference (i.e. "minfirst=FALSE")
+open3d()
+heatplot.PCs(coords,minfirst=FALSE,1, main = "PC1 hypothetical shapes")
+heatplot.PCs(coords,minfirst=FALSE,2, main = "PC2 hypothetical shapes")
+heatplot.PCs(coords,minfirst=FALSE,3, main = "PC3 hypothetical shapes")
+
+
+```
